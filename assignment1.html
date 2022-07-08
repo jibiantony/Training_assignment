@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assignment1.css">
+    <title>Assignment 1</title>
+</head>
+<body class="body">
+    <aside class="nav">
+        <div class ="divion1">
+            <a href="#">
+                <img src="kv logo.png" class="logo" alt="key value logo">
+            </a>
+        </div>
+        <nav>
+            <div class="navigation">
+                <img src="List.png" class="nav_logo" alt ="Navigation Logo"> Employee List
+            </div>
+        </nav>
+    </aside>
+    <main class="main_window">
+        <div class="top"></div>
+        <div class="main">
+        <section class="title">
+            <div class="employee_title" >
+                <h1> Create Employee</h1>
+            </div>
+        </section>
+        <form class="forms" action="#">
+        <section class="form">
+            <div class="input-fields">
+            <div class="data_input">
+                <label for="">Employee Name</label>
+                <input type="text" placeholder="Employee Name" id="Employee_Name" name="Employee_Name">
+            </div>
+            <div class="data_input">
+                <label for="">Employee ID</label>
+                <input type="text" placeholder=" Employee ID" name="Employee_ID" id="Employee_ID">
+            </div>
+            <div class="data_input">
+                <label for="">Joining Date</label>
+                <input type="text" placeholder="Joining Date" name="Joining_Date" id="Joining_Date">
+            </div>
+            <div class="data_input">
+                <label for="">Role</label>
+                <select name="Role" id="Role">
+                    <option value="">select option</option>
+                </select>
+            </div>
+            <div class="data_input">
+                <label for="">Status</label>
+                <select name="status" id="Status">
+                    <option value="">
+                        Status
+                    </option>
+                </select>
+            </div>
+            <div class="data_input">
+                <label for="">Experience</label>
+                <input type="text" placeholder="Experience" name="'Experience" id="Experience">
+            </div>
+            <div class="data_input">
+                <label for="">Address</label>
+                <input type="text" placeholder="Address" name="Address" id="Address">
+            </div>
+            <div class="data_input">
+                <label for="">Email id</label>
+                <input type="email" id="myEmail" placeholder="Email id" name="myEmail">
+            </div>
+            <div class="data_input">
+                <label>Upload file</label>
+                <input type="file" placeholder="Upload files">
+            </div>
+        </div>
+    </form>
+    </div>
+
+    <div class="buttons">
+        <button class="button bt1"  name="submit" value="Submit" id="button1">Create</button>
+        <button class="button bt2">Cancel</button>
+    </div>
+    <script>
+
+        function myFunction() {
+        document.getElementById("button1").style.backgroundColor= "gray"
+        var x = document.getElementById("myEmail").value;
+        var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        var name=document.getElementById("Employee_Name").value;
+        var id = document.getElementById("Employee_ID").value;
+        var role = document.getElementById("Role").value;
+        var join= document.getElementById("Joining_Date").value;
+        var status = document.getElementById("Status").value;
+        var exp = document.getElementById("Experience").value;
+        var add = document.getElementById("Address").value;
+        console.log("EMployee name" + name+"\n"+"Employment id :"+id+
+        "\n"+"Role :"+role + "\n"+"Joining Date :"+join+"\n"+"Status :"+status +"\n"+"Experience :"+exp + "\n" +"Address : "+add);
+        if(x.match(mailformat))
+        {
+        document.form1.text1.focus();
+        return true;
+        }
+        else
+        {
+        alert("Invalid email address.");
+        document.form1.text1.focus();
+        return false;
+        }
+    }
+    var button = document.getElementById("button1");
+    const debounce = (func, delay) => {
+        let debounceTimer
+        return function() {
+            const context = this
+            const args = arguments
+            if(debounceTimer){
+                clearTimeout(debounceTimer)
+                alert('Clicked submit multiple times')
+            }
+                    debounceTimer
+                = setTimeout(() => func.apply(context, args), delay)
+        }
+    } 
+    button.addEventListener('click', debounce(function() {myFunction()
+                            }, 3000));
+    </script>
+    </div>
+    </section>
+    </main>
+</body>
+</html>
